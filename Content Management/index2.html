@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Management Tool</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </header>
+
+</head>
+
+<body>
+    <header class="head">
+        <div class="elements">
+
+            <ul class="menu">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="media.html">Create</a></li>
+
+
+                <li><a href="#Contact">Contact</a></li>
+
+
+            </ul>
+        </div>
+        <h1> Content Mangement Tool </h1> <br><br>
+
+
+        <section id="MY PROJECTS" class="projects">
+
+            <div class="project-card">
+                <img src="smart besom.jpeg" alt="content 1">
+                <h3>smart besom</h3>
+                <p>The reasonably priced smart besom can quickly determine whether an area needs to be swept or
+                    not, quickly recognise documents and metal objects (such as gold, silver, etc.) <br>
+                    it comes across
+                    when sweeping, and quickly alert the user when the besom's brush needs to be replaced.
+                    Smart besom content refers to the use of advanced technology, such as sensors and artificial
+                    intelligence,
+                    in cleaning tools like brooms </p>
+                <a href="#" class="know-more-button">Know More</a>
+
+            </div>
+            <div class="project-card">
+                <img src="https://www.mdpi.com/sensors/sensors-21-05291/article_deploy/html/images/sensors-21-05291-g001.png"
+                    alt="content 2">
+                <h3>Gesture control</h3>
+                <p>Gesture recognition helps computers to understand human body language. This helps to build a more
+                    potent
+                    link between humans
+                    and machines, rather than just the basic text user interfaces or graphical user interfaces (GUIs).
+                    In
+                    this project for
+                    gesture recognition, the human body’s motions are read by computer camera.</p>
+                <a href="#" class="know-more-button">Know More</a>
+
+            </div>
+            <div class="project-card">
+                <img src="https://c0.wallpaperflare.com/preview/563/583/767/interior-tech-technology-coffee.jpg"
+                    alt="content 3">
+                <h3>Cafe Management system</h3>
+                <p>Cafe Management System is based on a concept to maintain orders and management of a particular items.
+                    This project is developed in java#. NET using C# language and Microsoft SQL database used. <br> <br>
+                    The role of the User is to maintain information including operations like modifying, deleting, <br>
+                    updating the items records and customer order records in the system.</p>
+                <a href="#" class="know-more-button">Know More</a>
+
+            </div><br><br>
+
+
+
+
+            <section class="contact-land" id="Contact">
+                <div class="section-header">
+                    <div class="container">
+                        <h2 id="con">Contact Us</h2>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="contact-box">
+                        <div class="contact-left">
+                            <h3>Send your message</h3>
+                            <form action="#" method="POST">
+                                <input type="text" name="name" placeholder="Full Name" required />
+                                <input type="email" name="email" placeholder="Email Address" required />
+                                <input dropdown="country" name="country" placeholder="country" required />
+
+                                <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+                                <button type="submit">Send</button>
+                            </form>
+                        </div>
+                        <div class="contact-right">
+                            <h3>Contact Information</h3>
+                            <ul>
+                                <li><i class="fas fa-map-marker-alt"></i>123 Main St, City, Country</li>
+                                <li><i class="fas fa-phone"></i>+91 123 345 432</li>
+                                <li><i class="fas fa-envelope"></i>admin@gmail.com</li>
+                                <li><i class="bx bxl-telegram"></i>Content@telegram.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 2023 Sai Kiran. All rights reserved.</p>
+            </footer>
+
+
+            <script>
+                function allowDrop(event) {
+                    event.preventDefault();
+                }
+
+                function drag(event) {
+                    event.dataTransfer.setData("text", event.target.id);
+                }
+
+                function drop(event) {
+                    event.preventDefault();
+                    var data = event.dataTransfer.getData("text");
+                    var element = document.createElement(data);
+
+                    if (data === "text") {
+                        element.textContent = "Drag and drop text content here.";
+                    } else if (data === "image") {
+                        element.src = "image-url.jpg"; // Add the image URL you want to display
+                    } else if (data === "video") {
+                        element.src = "video-url.mp4"; // Add the video URL you want to display
+                        element.controls = true; // Show video controls
+                    }
+
+                    element.classList.add("dragged");
+                    element.style.margin = "10px"; // Add some spacing between elements
+                    document.getElementById("project1").appendChild(element);
+                }
+
+            </script>
+
+
+
+
+
+</body>
+
+</html>

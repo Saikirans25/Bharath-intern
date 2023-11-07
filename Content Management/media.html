@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <title>Create</title>
+</head>
+<header class="head">
+    <div class="elements">
+
+        <ul class="menu">
+            <li><a href="index2.html">Home</a></li>
+
+
+
+
+        </ul>
+    </div>
+</header>
+<style>
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0.8, 0.5), rgba(0, 0, 0, 0.478)), url("Content\ Management\ Tool\ \(1\).png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .head .menu {
+        list-style: none;
+        display: flex;
+
+        margin-left: 80rem;
+    }
+
+
+    .head .menu li {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .head .menu li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+    }
+
+    .head .menu li a:hover {
+        color: #f7ca18;
+    }
+
+    .head .menu li a button {
+        padding: 10px;
+        background-color: transparent;
+        color: #f1eaea;
+        border: 1px solid #f1eaea;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .head .menu li a button:hover {
+        background-color: #f1eaea;
+        color: #222222dc;
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    }
+
+    #create-post {
+        max-width: 600px;
+        margin: 0 auto;
+
+    }
+
+    #create-post h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    #post-form {
+        background-color: #ffffff1a;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        padding-right: 45px;
+        box-shadow: 05px 05px 03px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    #post-form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+
+    }
+
+
+
+
+
+    #post-form input[type="text"],
+    #post-form textarea,
+    input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        background-color: #f5eeeeea;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #post-form button {
+        background-color: green;
+        color: #ccc;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        box-shadow: 05px 05px 03px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    #post-form button:hover {
+        background-color: rgb(54, 142, 54);
+    }
+
+    #post-list {
+        background-color: #ffffffdc;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 560px;
+        margin: auto;
+        margin-top: 10px;
+        box-shadow: 05px 05px 03px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    img {
+        border: 1px solid #ccc;
+        max-width: 560px;
+        height: auto;
+        margin: auto;
+        margin-top: 10px;
+        box-shadow: 05px 05px 03px 0px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<body>
+    <section id="create-post">
+        <h2 style="text-align: center">Create a Post</h2>
+        <form id="post-form">
+            <label for="post-title">Post Title:</label>
+            <input type="text" id="post-title" placeholder="Title" name="post-title" required />
+
+            <label for="post-content">Post Content:</label>
+            <textarea id="post-content" placeholder="Content" name="post-content" rows="4" required></textarea>
+
+            <label for="post-image">Post Image:</label>
+            <input type="file" id="post-image" accept="image/*" required />
+            <button type="submit">Create Post</button>
+        </form>
+    </section>
+
+    <section id="post-list">
+        <h2>Posts</h2>
+        <ul></ul>
+    </section>
+
+    <script>
+        const postForm = document.getElementById("post-form");
+        const postList = document.getElementById("post-list");
+
+        postForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const postTitle = document.getElementById("post-title").value;
+            const postContent = document.getElementById("post-content").value;
+            const postImage = document.getElementById("post-image").files[0];
+
+            if (postTitle && postContent && postImage) {
+                const listItem = document.createElement("li");
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(postImage);
+                const title = document.createElement("h3");
+                title.textContent = postTitle;
+                const pContent = document.createElement("P");
+                pContent.textContent = postContent;
+
+                const timestamp = new Date();
+                const postTimestamp = document.createElement("P");
+                postTimestamp.textContent =
+                    "Created on: " + timestamp.toLocaleString();
+
+                listItem.appendChild(image);
+                listItem.appendChild(title);
+                listItem.appendChild(pContent);
+                listItem.appendChild(postTimestamp);
+                postList.appendChild(listItem);
+            }
+
+            postForm.reset();
+        });
+    </script>
+</body>
+
+</html>
